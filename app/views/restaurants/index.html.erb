@@ -2,10 +2,14 @@
   <div class="row">
     <div class="col mt-5">
       <h1>Restaurants</h1>
+      <p>Total restaurant: <%= @restaurant_count %></p>
 
       <ul>
         <% @restaurants.each do |restaurant| %>
-          <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+          <li>
+            <%= link_to restaurant.name, restaurant_path(restaurant) %>
+            <small>- <%= link_to "Delete", restaurant_path(restaurant), method: :delete, remote: true %></small>
+          </li>
         <% end %>
       </ul>
     </div>
